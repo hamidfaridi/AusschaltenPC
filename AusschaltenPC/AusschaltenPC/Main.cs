@@ -45,7 +45,7 @@ namespace AusschaltenPC
             int intStunde = Convert.ToInt32(nudStunde.Value);
             int intMinute = Convert.ToInt32(nudMinute.Value);
 
-            intTimer = intTag * 24 * 3600 + intStunde * 3600 + intMinute;
+            intTimer = intTag * 24 * 3600 + intStunde * 3600 + intMinute * 60;
             lblTimerValue.Text = DateTime.Now.AddDays(intTag).AddHours(intStunde).AddMinutes(intMinute).ToString("yyyy/MM/dd - HH:mm");
 
             return intTimer;

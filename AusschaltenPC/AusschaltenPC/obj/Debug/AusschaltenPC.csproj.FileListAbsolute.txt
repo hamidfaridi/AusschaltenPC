@@ -1,0 +1,10 @@
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\bin\Debug\AusschaltenPC.exe.config
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\bin\Debug\AusschaltenPC.exe
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\bin\Debug\AusschaltenPC.pdb
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\obj\Debug\AusschaltenPC.csprojAssemblyReference.cache
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\obj\Debug\AusschaltenPC.frmMain.resources
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\obj\Debug\AusschaltenPC.Properties.Resources.resources
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\obj\Debug\AusschaltenPC.csproj.GenerateResource.cache
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\obj\Debug\AusschaltenPC.csproj.CoreCompileInputs.cache
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\obj\Debug\AusschaltenPC.exe
+C:\VS\Git\AusschaltenPC\AusschaltenPC\AusschaltenPC\obj\Debug\AusschaltenPC.pdb

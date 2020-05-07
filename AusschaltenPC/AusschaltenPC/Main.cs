@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AusschaltenPC
@@ -18,57 +11,75 @@ namespace AusschaltenPC
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Die fährt den PC herunter
+        /// </summary>
+        /// <param name="sender">BtnHerunterfahren</param>
+        /// <param name="e">Click</param>
         private void BtnHerunterfahren_Click(object sender, EventArgs e)
         {
-			//Shutting down the PC
             int intTimer = 0;
             intTimer = CalculateTimer();
 
-            Process prcHerunterfahren = new Process();
-            prcHerunterfahren.StartInfo.FileName = "cmd.exe";
-            prcHerunterfahren.StartInfo.CreateNoWindow = true;
-            prcHerunterfahren.StartInfo.RedirectStandardInput = true;
-            prcHerunterfahren.StartInfo.RedirectStandardOutput = true;
-            prcHerunterfahren.StartInfo.UseShellExecute = false;
-            prcHerunterfahren.Start();
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardInput = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.Start();
 
-            prcHerunterfahren.StandardInput.WriteLine(string.Format("shutdown -s -t {0}", intTimer));
-            prcHerunterfahren.StandardInput.Flush();
-            prcHerunterfahren.StandardInput.Close();
-            prcHerunterfahren.WaitForExit();
-            MessageBox.Show(prcHerunterfahren.StandardOutput.ReadToEnd());
+            process.StandardInput.WriteLine(string.Format("shutdown -s -t {0}", intTimer));
+            process.StandardInput.Flush();
+            process.StandardInput.Close();
+            process.WaitForExit();
+            MessageBox.Show(process.StandardOutput.ReadToEnd());
         }
 
+        /// <summary>
+        /// Es zählt Zeit für herunterfahren
+        /// </summary>
+        /// <returns>Sekunden</returns>
         private int CalculateTimer()
         {
-            int intTimer = 0;
+            int seconds = 0;
             int intTag = Convert.ToInt32(nudTag.Value);
             int intStunde = Convert.ToInt32(nudStunde.Value);
             int intMinute = Convert.ToInt32(nudMinute.Value);
 
-            intTimer = intTag * 24 * 3600 + intStunde * 3600 + intMinute * 60;
+            seconds = intTag * 24 * 3600 + intStunde * 3600 + intMinute * 60;
             lblTimerValue.Text = DateTime.Now.AddDays(intTag).AddHours(intStunde).AddMinutes(intMinute).ToString("yyyy/MM/dd - HH:mm");
 
-            return intTimer;
+            return seconds;
         }
 
+        /// <summary>
+        /// Es winterschläft den PC
+        /// </summary>
+        /// <param name="sender">BtnWinterschlaf</param>
+        /// <param name="e">Click</param>
         private void BtnWinterschlaf_Click(object sender, EventArgs e)
         {
-            Process prcHerunterfahren = new Process();
-            prcHerunterfahren.StartInfo.FileName = "cmd.exe";
-            prcHerunterfahren.StartInfo.CreateNoWindow = true;
-            prcHerunterfahren.StartInfo.RedirectStandardInput = true;
-            prcHerunterfahren.StartInfo.RedirectStandardOutput = true;
-            prcHerunterfahren.StartInfo.UseShellExecute = false;
-            prcHerunterfahren.Start();
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardInput = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.Start();
 
-            prcHerunterfahren.StandardInput.WriteLine("shutdown -h");
-            prcHerunterfahren.StandardInput.Flush();
-            prcHerunterfahren.StandardInput.Close();
-            prcHerunterfahren.WaitForExit();
-            MessageBox.Show(prcHerunterfahren.StandardOutput.ReadToEnd());
+            process.StandardInput.WriteLine("shutdown -h");
+            process.StandardInput.Flush();
+            process.StandardInput.Close();
+            process.WaitForExit();
+            MessageBox.Show(process.StandardOutput.ReadToEnd());
         }
 
+        /// <summary>
+        /// Es aufruf CalculateTimer() Methode
+        /// </summary>
+        /// <param name="sender">NumericUpDown</param>
+        /// <param name="e">Value Change</param>
         private void Nud_ValueChanged(object sender, EventArgs e)
         {
             CalculateTimer();

@@ -20,6 +20,7 @@ namespace AusschaltenPC
 
         private void BtnHerunterfahren_Click(object sender, EventArgs e)
         {
+			//Shutting down the PC
             int intTimer = 0;
             intTimer = CalculateTimer();
 
